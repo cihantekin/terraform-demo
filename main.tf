@@ -1,6 +1,16 @@
 resource "local_file" "pet" {
     filename = var.filename
     content = "My favorite pet is ${random_pet.my-pet.id}"
+    file_permission = "0700"
+
+    // if there is some changes, first create then destroy old one
+    lifecycle {
+      create_before_destroy = true
+    }
+    // if there is some changes, protect the old one
+    # lifecycle {
+    #   prevent_destroy = true
+    # }
 }
 
 resource "random_pet" "my-pet" {
