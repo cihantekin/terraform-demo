@@ -7,9 +7,17 @@ resource "local_file" "pet" {
     lifecycle {
       create_before_destroy = true
     }
+    
     // if there is some changes, protect the old one
     # lifecycle {
     #   prevent_destroy = true
+    # }
+
+    // ignore the changes on this attribute
+    # lifecycle {
+    #   ignore_changes = [
+    #     content
+    #   ]
     # }
 }
 
