@@ -1,5 +1,11 @@
 variable "filename" {
-  default = "/root/pets.txt"
+  default = [
+      "/root/pets.txt",
+      "/root/dogs.txt",
+      "/root/cats.txt",
+      "/root/cows.txt",
+      "/root/ducks.txt"
+  ]
 }
 variable "content" {
   default = "We love pets! My favourite pet is no pet!"
